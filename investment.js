@@ -39,21 +39,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const totalLandPreparation = landPrep1 + landPrep2 + landPrep3 + landPrep4;
   
     // Sum up all fixed costs
-    const totalFixedCosts = landRent + totalLandPreparation;
-  
-    // Get values for variable costs (placeholder)
-    let totalVariableCosts = 0; // Add your variable costs logic here
+    const totalFixedCosts = landRent;
   
     // Perform calculations for total costs
     const totalCosts = totalFixedCosts + totalVariableCosts;
-  
-    // Display results with thousand separators
-    document.getElementById("totalFixedCosts").innerText = `Total Fixed Costs: ${formatNumberWithCommas(totalFixedCosts)}`;
-    document.getElementById("totalVariableCosts").innerText = `Total Variable Costs: ${formatNumberWithCommas(totalVariableCosts)}`;
-    document.getElementById("totalCosts").innerText = `Total Costs: ${formatNumberWithCommas(totalCosts)}`;
-  }
-  
-  // Function to calculate the cost based on soluong and price
+
+      // Function to calculate the cost based on soluong and price
   function calculateCost() {
     const soluong = parseFloat(document.getElementById("soluong").value) || 0;
     const price = parseFloat(document.getElementById("price").value) || 0;
@@ -68,3 +59,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("calculatedCost").textContent = formatNumberWithCommas(roundedCost);
   }
   
+    // Get values for variable costs (placeholder)
+    const totalVariableCosts = totalLandPreparation + RoundedCost;
+  
+    // Display results with thousand separators
+    document.getElementById("totalFixedCosts").innerText = `Total Fixed Costs: ${formatNumberWithCommas(totalFixedCosts)}`;
+    document.getElementById("totalVariableCosts").innerText = `Total Variable Costs: ${formatNumberWithCommas(totalVariableCosts)}`;
+    document.getElementById("totalCosts").innerText = `Total Costs: ${formatNumberWithCommas(totalCosts)}`;
+  }
