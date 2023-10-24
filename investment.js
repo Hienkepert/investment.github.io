@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     // Display today's date (left-aligned)
     document.getElementById("currentDate").style.textAlign = "left";
     document.getElementById("currentDate").innerText = new Date().toLocaleDateString();
