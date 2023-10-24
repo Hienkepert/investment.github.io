@@ -1,37 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Investment</title>
+  <title>Chi Phí Đầu Tư Sản Xuất Giống</title>
   <style>
-    h1 {
-      font-family: Arial, sans-serif;
-      padding: 50;
-      font-size: 20px
-    }
     body {
-      font-family: Arial, san-serif;
-      font-size: 30px
+      font-family: Arial, sans-serif;
+    }
+    .section-header {
+      font-weight: bold;
+      background-color: lightblue;
     }
   </style>
   <script src="investment.js"></script>
 </head>
 <body>
 
-  <h1>Investment</h1>
+  <!-- Top line with country and date -->
+  <div>
+    Quốc Gia: 
+    <select id="country">
+      <option selected>Việt Nam</option>
+    </select>
+    <span id="currentDate"></span>
+  </div>
 
-  <label for="investmentType">Choose plant:</label>
-  <select id="investmentType">
-    <option value="corn">Corn</option>
-    <option value="sweetPotato">Sweet Potato</option>
-    <option value="pumpkin">Pumpkin</option>
-  </select>
+  <!-- Title and Subtitle -->
+  <h1>Chi Phí Đầu Tư Sản Xuất Giống</h1>
+  <div>
+    Vụ: 
+    <select id="crop">
+      <option>Đông Xuân</option>
+      <option>Hè Thu</option>
+    </select>
+    Mùa: 
+    <select id="season">
+      <option>Khô</option>
+      <option>Mưa</option>
+    </select>
+    Year: 
+    <select id="year">
+      <option>2020</option>
+      <option>2021</option>
+      <option>2022</option>
+      <option selected>2023</option>
+    </select>
+  </div>
 
-  <label for="price">Enter price:</label>
-  <input type="number" id="price">
+  <!-- Content Tab -->
+  <div class="section-header">
+    Nội dung
+  </div>
 
-  <button onclick="calculateInvestment()">Calculate</button>
+  <!-- Fixed Costs -->
+  <div>
+    <h2>Chi Phí Cố Định</h2>
+    1. Thuê Đất: <input type="number" id="landRent" placeholder="Amount for Thuê Đất">
+  </div>
 
-  <div id="result"></div>
+  <!-- Variable Costs -->
+  <div>
+    <h2>Chi Phí Biến Động</h2>
+    <!-- Sub-unit 1 -->
+    1. Tên Giống:
+    <select id="cropType">
+      <option selected>Bắp</option>
+      <option>Khoai</option>
+      <option>Bí Ngô</option>
+    </select>
+    <!-- More details for Sub-unit 1 -->
+
+    <!-- Sub-unit 2 -->
+    2. Chi Phí Chuẩn Bị Đất:
+    <!-- More details for Sub-unit 2 -->
+    <!-- Sub-unit 2 -->
+    <h3>2. Chi Phí Chuẩn Bị Đất:</h3>
+    Chi phí làm đất lần 1(Đ/ha) (Cày): <input type="number" id="landPrep1" placeholder="Cost of first land preparation"><br>
+    Chi phí làm đất lần 2(Đ/ha) (Xới): <input type="number" id="landPrep2" placeholder="Cost of second land preparation"><br>
+    Chi phí làm đất lần 3(Đ/ha) (Làm Hàng): <input type="number" id="landPrep3" placeholder="Cost of third land preparation"><br>
+    Chi phí làm đất lần 4(Đ/ha) (Làm Hàng): <input type="number" id="landPrep4" placeholder="Cost of fourth land preparation"><br>
+
+    <!-- Sub-unit 3 -->
+    3. Chi Phí Sử Dụng Nhân Công Trồng Bắp:
+    Nhân công sử dụng: <input type="number" id="laborCount" placeholder="Number of workers">
+    người
+    Số ngày sử dụng: <input type="number" id="daysCount" placeholder="Number of days">
+    Giá nhân công: <input type="number" id="laborCost" placeholder="Labor cost">
+    (Đ/người/ngày)
+  </div>
+
+  <!-- Calculate Button -->
+  <button id="calculateBtn">Calculate</button>
+
+  <!-- Results -->
+  <div id="results">
+    <h2 class="section-header">Tổng Cộng</h2>
+    <p id="totalFixedCosts">Chi Phí Cố Định: </p>
+    <p id="totalVariableCosts">Chi Phí Biến Động: </p>
+    <p id="totalCosts">Tổng Cộng: </p>
+  </div>
+
+  <!-- Comparison Table -->
+  <table border="1">
+    <tr>
+      <th>Loại Giống</th>
+      <th>Chi Phí Cố Định</th>
+      <th>Chi Phí Biến Động</th>
+      <th>Tổng Cộng</th>
+    </tr>
+    <tr>
+      <td>Bắp</td>
+      <td id="cornFixed"></td>
+      <td id="cornVariable"></td>
+      <td id="cornTotal"></td>
+    </tr>
+    <tr>
+      <td>Khoai</td>
+      <td id="potatoFixed"></td>
+      <td id="potatoVariable"></td>
+      <td id="potatoTotal"></td>
+    </tr>
+    <tr>
+      <td>Bí Ngô</td>
+      <td id="pumpkinFixed"></td>
+      <td id="pumpkinVariable"></td>
+      <td id="pumpkinTotal"></td>
+    </tr>
+  </table>
 
 </body>
 </html>
