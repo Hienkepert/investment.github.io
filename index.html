@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Investment Costs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+  <script src="investment.js"></script>
+</head>
+<body>
+
+  <h1>Investment Costs in Agriculture</h1>
+
+  <label for="investmentType">Choose an investment type:</label>
+  <select id="investmentType">
+    <option value="corn">Corn</option>
+    <option value="sweetPotato">Sweet Potato</option>
+    <option value="pumpkin">Pumpkin</option>
+  </select>
+
+  <label for="price">Enter price:</label>
+  <input type="number" id="price">
+
+  <button onclick="calculateInvestment()">Calculate</button>
+
+  <div id="result"></div>
+
+</body>
+</html>
