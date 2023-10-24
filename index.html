@@ -10,6 +10,9 @@
       font-weight: bold;
       background-color: lightblue;
     }
+    currentDate {
+      text-align: left;
+    }
   </style>
   <script src="investment.js"></script>
 </head>
@@ -54,7 +57,8 @@
   <!-- Fixed Costs -->
   <div>
     <h2>Chi Phí Cố Định</h2>
-    1. Thuê Đất: <input type="number" id="landRent" placeholder="Amount for Thuê Đất">
+    1. Thuê Đất: <input type="number" id="landRent" placeholder=" Giá Thuê Đất">
+    <span>VND</span>
   </div>
 
   <!-- Variable Costs -->
@@ -69,26 +73,30 @@
     </select>
     <!-- Quy cách -->
     <label for="quycach">Quy cách:</label>
-    <input type="number" id="quycach" placeholder="Quy cách">
+    <input type="number" id="quycach" placeholder="bao nhiêu bó?...">
     <span>(bó dây)</span>
 
     <!-- Giá (đ/kg) -->
-    <label for="price">Giá (đ/kg):</label>
+    <label for="price">Giá:</label>
     <input type="number" id="price" placeholder="Giá">
-    <span>(đ/kg)</span>
+    <span>(VND/kg)</span>
 
     <!-- Display the calculated cost -->
-    <p>Calculated Cost: <span id="calculatedCost">0</span> (đ)</p>
+    <p>Calculated Cost: <span id="calculatedCost">0</span> (VND)</p>
 
     <!-- Sub-unit 2 -->
     2. Chi Phí Chuẩn Bị Đất:
     <!-- More details for Sub-unit 2 -->
     <!-- Sub-unit 2 -->
     <h3>2. Chi Phí Chuẩn Bị Đất:</h3>
-    Chi phí làm đất lần 1(Đ/ha) (Cày): <input type="number" id="landPrep1" placeholder="Cost of first land preparation"><br>
-    Chi phí làm đất lần 2(Đ/ha) (Xới): <input type="number" id="landPrep2" placeholder="Cost of second land preparation"><br>
-    Chi phí làm đất lần 3(Đ/ha) (Làm Hàng): <input type="number" id="landPrep3" placeholder="Cost of third land preparation"><br>
-    Chi phí làm đất lần 4(Đ/ha) (Làm Hàng): <input type="number" id="landPrep4" placeholder="Cost of fourth land preparation"><br>
+    Chi phí làm đất lần 1 (Cày): <input type="number" id="landPrep1" placeholder="Cost of first land preparation"><br>
+    <span>(VND/ha)</span>
+    Chi phí làm đất lần 2(VND/ha) (Xới): <input type="number" id="landPrep2" placeholder="Cost of second land preparation"><br>
+    <span>(VND/ha)</span>
+    Chi phí làm đất lần 3(VND/ha) (Làm Hàng): <input type="number" id="landPrep3" placeholder="Cost of third land preparation"><br>
+    <span>(VND/ha)</span>
+    Chi phí làm đất lần 4(VND/ha) (Làm Hàng): <input type="number" id="landPrep4" placeholder="Cost of fourth land preparation"><br>
+    <span>(VND/ha)</span>
 
     <!-- Sub-unit 3 -->
     3. Chi Phí Sử Dụng Nhân Công Trồng Bắp:
