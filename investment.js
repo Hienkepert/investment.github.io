@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Add event listener for Calculate button
     document.getElementById("calculateBtn").addEventListener("click", calculateTotalInvestment);
+  
+    // Event listener for updating the calculated cost
+    document.getElementById("quycach").addEventListener("input", calculateCost);
+    document.getElementById("price").addEventListener("input", calculateCost);
   });
   
   function calculateTotalInvestment() {
@@ -32,5 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("totalFixedCosts").innerText = `Total Fixed Costs: ${totalFixedCosts}`;
     document.getElementById("totalVariableCosts").innerText = `Total Variable Costs: ${totalVariableCosts}`;
     document.getElementById("totalCosts").innerText = `Total Costs: ${totalCosts}`;
+  }
+  
+  // Function to calculate the cost based on quycach and price
+  function calculateCost() {
+    const quycach = parseFloat(document.getElementById("quycach").value) || 0;
+    const price = parseFloat(document.getElementById("price").value) || 0;
+  
+    // Calculate the cost
+    const cost = quycach * price;
+  
+    // Display the calculated cost
+    document.getElementById("calculatedCost").textContent = cost.toFixed(2); // Display cost with 2 decimal places
   }
   
