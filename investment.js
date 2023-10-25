@@ -31,7 +31,7 @@ function formatNumberWithCommas(number) {
     // Event listener for updating the calculated cost
     document.getElementById("soluong").addEventListener("input", function() {
       calculateCost();
-  
+
     document.getElementById("price").addEventListener("input", function() {
       calculateCost();
       // Format the value with thousand separators
