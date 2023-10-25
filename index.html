@@ -58,7 +58,7 @@
   <div>
     <h3>CHI PHÍ BIẾN ĐỘNG</h3>
   <div style="white-space: nowrap;"> 
-    <h4 style="margin-right: 20px; display: inline">1. Tên Giống:</h4>
+    <h4 style="margin-right: 20px; display: inline">1. Tên giống:</h4>
     <select id="cropType">
     <option value="corn" selected>Bắp</option>
     <option value="potato">Khoai</option>
@@ -72,7 +72,7 @@
     <!-- Display the calculated cost -->
     <p>Tổng: <span id="calculatedCost">0</span> (VND)</p>
 
-    <h4>2. Chi Phí Chuẩn Bị Đất:</h4>
+    <h4>2. Chi phí chuẩn bị đất:</h4>
     Chi phí làm đất lần 1 (Cày): <input type="number" id="landPrep1" style="margin-left: 46px">
     (VND/ha)<br>
     Chi phí làm đất lần 2 (Xới): <input type="number" id="landPrep2" style="margin-left: 50px">
@@ -83,12 +83,23 @@
     (VND/ha)<br>
 
     <!-- Sub-unit 3 -->
-    <h4>3. Chi Phí Sử Dụng Nhân Công Trồng Bắp:</h4>
+    <h4>3. Chi phí sử dụng nhân công trồng bắp:</h4>
     <label for="sonhancong"></label>Nhân công sử dụng: <input type="number" id="laborCount">
     người
     <label for="songaylam" style="margin-left: 20px;"></label>Số ngày sử dụng: <input type="number" id="daysCount">
     <label for="gianhancong" style="margin-left: 20px;"></label>Giá nhân công: <input type="number" id="laborCost">
     (VND/người/ngày)
+  </div>
+  <div>
+    <h4>4. Chi phí sử dụng phân bón:</h4>
+    <h5>4.1 Phân vi sinh: Số lần sử dụng (lần)</h5>
+    Lần 1: Loại phân <input type="text" id="loaiphanvisinhlan1" style="display: inline">
+    Tên phân: <input type="text" id="tenphanvisinhlan1">
+    Số lượng: <input type="number" id="soluongphanvisinhlan1">
+    kg/ha
+    Giá: <input type="number" id="giaphanvisinhlan1">
+    VND/chai, gói, kg
+
   </div>
   <p>Tổng: <span id="calculatedLaborCost">0</span> (VND)</p>
   <!-- Calculate Button -->
