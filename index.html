@@ -48,7 +48,7 @@
   </div>
 
   <!-- Content Tab -->
-  <div class="section-header" style="text-align: center; margin-top: 10px; font-size: 20px">
+  <div class="section-header" style="padding: 5px; text-align: center; margin-top: 10px; font-size: 20px">
     Nội dung
   </div>
 
@@ -62,22 +62,18 @@
   <!-- Variable Costs -->
   <div>
     <h2>Chi Phí Biến Động</h2>
-    <!-- Sub-unit 1 -->
+  <div style="white-space: nowrap;"> 
     <h3 style="margin-right: 20px;">1. Tên Giống:</h3>
     <select id="cropType">
     <option value="corn" selected>Bắp</option>
     <option value="potato">Khoai</option>
     <option value="pumpkin">Bí Ngô</option>
     </select>
-    <!-- Quy cách -->
     <label for="soluong" style="margin-left: 20px;">Số lượng:</label>
-    <input type="number" id="quycach" placeholder="bao nhiêu bó?...">
-    <span>(bó dây)</span>
-
-    <!-- Giá (đ/kg) -->
+    <input type="number" id="quycach" placeholder="bao nhiêu bó/gói?...">
     <label for="price" style="margin-left: 20px;">Giá:</label>
-    <input type="number" id="price" placeholder="Giá 1 bó"><span>(VND/kg)</span>
-
+    <input type="number" id="price" placeholder="Giá 1 bó/gói"><span>VND</span>
+  </div>
     <!-- Display the calculated cost -->
     <p>Tổng: <span id="calculatedCost">0</span> (VND)</p>
 
