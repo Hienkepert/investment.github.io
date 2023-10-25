@@ -1,11 +1,11 @@
-// JavaScript code
 // Function to format numbers with thousand separators
 function formatNumberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// Declare totalLaborCost as a global variable
+// Declare totalLaborCost and totalMicrobialFertilizerCost as global variables
 let totalLaborCost = 0;
+let totalMicrobialFertilizerCost = 0;
 
 // Function to calculate the cost based on soluong and price
 function calculateCost() {
@@ -15,6 +15,17 @@ function calculateCost() {
     const roundedCost = cost.toFixed(0);
     document.getElementById("calculatedCost").textContent = formatNumberWithCommas(roundedCost);
     return roundedCost;
+}
+
+// Function to calculate Microbial Fertilizer Cost
+function calculateMicrobialFertilizerCost() {
+    const quantity1 = parseFloat(document.getElementById("soluongphanvisinhlan1").value) || 0;
+    const price1 = parseFloat(document.getElementById("giaphanvisinhlan1").value) || 0;
+    const quantity2 = parseFloat(document.getElementById("soluongphanvisinhlan2").value) || 0;
+    const price2 = parseFloat(document.getElementById("giaphanvisinhlan2").value) || 0;
+
+    // Calculate totalMicrobialFertilizerCost
+    totalMicrobialFertilizerCost = (quantity1 * price1) + (quantity2 * price2);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -50,6 +61,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function calculateTotalInvestment() {
+    calculateMicrobialFertilizerCost(); // Calculate Microbial Fertilizer Cost
+
     const landRent = parseFloat(document.getElementById("landRent").value) || 0;
     const landPrep1 = parseFloat(document.getElementById("landPrep1").value) || 0;
     const landPrep2 = parseFloat(document.getElementById("landPrep2").value) || 0;
@@ -59,8 +72,8 @@ function calculateTotalInvestment() {
     const totalLandPreparation = landPrep1 + landPrep2 + landPrep3 + landPrep4;
     const roundedCost = calculateCost();
 
-    // Use the global variable in your calculation
-    const totalVariableCosts = totalLandPreparation + totalLaborCost + parseFloat(roundedCost);
+    // Use the global variables in your calculation
+    const totalVariableCosts = totalLandPreparation + totalLaborCost + parseFloat(roundedCost) + totalMicrobialFertilizerCost;
 
     const totalFixedCosts = landRent;
     const totalCosts = totalFixedCosts + totalVariableCosts;
