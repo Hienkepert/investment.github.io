@@ -25,7 +25,16 @@ function calculateMicrobialFertilizerCost() {
     const price2 = parseFloat(document.getElementById("giaphanvisinhlan2").value) || 0;
 
     // Calculate totalMicrobialFertilizerCost
-    totalMicrobialFertilizerCost = (quantity1 * price1) + (quantity2 * price2);
+    const totalMicrobialFertilizerCost = (quantity1 * price1) + (quantity2 * price2);
+    // Update the HTML element with the calculated cost
+    document.getElementById("calculatedPhanViSinhCost").textContent = totalMicrobialFertilizerCost;
+
+    // Add event listeners to input fields
+    document.getElementById("soluongphanvisinhlan1").addEventListener("input", calculateMicrobialFertilizerCost);
+    document.getElementById("giaphanvisinhlan1").addEventListener("input", calculateMicrobialFertilizerCost);
+    document.getElementById("soluongphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
+    document.getElementById("giaphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
+
 }
 
 document.addEventListener("DOMContentLoaded", function() {
