@@ -28,16 +28,20 @@ function formatNumberWithCommas(number) {
     // Add event listener for Calculate button
     document.getElementById("calculateBtn").addEventListener("click", calculateTotalInvestment);
   
-    // Event listener for updating the calculated cost
-    document.getElementById("soluong").addEventListener("input", function() {
-      calculateCost();
-
-    document.getElementById("price").addEventListener("input", function() {
-      calculateCost();
+    // Event listener for updating the calculated cost for 'soluong'
+document.getElementById("soluong").addEventListener("input", function() {
+    calculateCost();
+  });
+  
+  // Event listener for updating the calculated cost for 'price'
+  document.getElementById("price").addEventListener("input", function() {
+    calculateCost();
+  });
+  
       // Format the value with thousand separators
       this.value = formatNumberWithCommas(parseFloat(this.value) || 0);
     });
-  });
+  
   
   function calculateTotalInvestment() {
     // Get values for fixed costs
