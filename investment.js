@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const laborCountEl = document.getElementById("laborCount");
     const daysCountEl = document.getElementById("daysCount");
     const laborCostEl = document.getElementById("laborCost");
-    const calculatedCostEl = document.getElementById("calculatedCost");
+    const calculatedLaborCostEl = document.getElementById("calculatedLaborCost");
 
     function calculateLaborCost() {
         const laborCount = parseFloat(laborCountEl.value) || 0;
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const laborCost = parseFloat(laborCostEl.value) || 0;
 
         const totalLaborCost = laborCount * daysCount * laborCost;
-        calculatedCostEl.textContent = formatNumberWithCommas(totalLaborCost); // Using your existing number formatting function
+        calculatedLaborCostEl.textContent = formatNumberWithCommas(totalLaborCost); // Using your existing number formatting function
     }
 
     // Attach event listeners to update the calculated cost whenever any of the input values change
