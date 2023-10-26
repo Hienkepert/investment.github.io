@@ -36,8 +36,6 @@ function calculateMicrobialFertilizerCost() {
     document.getElementById("soluongphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
     document.getElementById("giaphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("currentDate").style.textAlign = "left";
     document.getElementById("currentDate").innerText = new Date().toLocaleDateString();
