@@ -3,11 +3,10 @@ function formatNumberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// Declare totalLaborCost and totalMicrobialFertilizerCost as global variables
 let totalLaborCost = 0;
 let totalMicrobialFertilizerCost = 0;
 
-// Function to calculate the cost based on soluong and price
+// soluong and price
 function calculateCost() {
     const soluong = parseFloat(document.getElementById("soluong").value) || 0;
     const price = parseFloat(document.getElementById("price").value) || 0;
@@ -17,7 +16,7 @@ function calculateCost() {
     return roundedCost;
 }
 
-// Function to calculate Microbial Fertilizer Cost
+// Microbial Fertilizer Cost
 function calculateMicrobialFertilizerCost() {
     const quantity1 = parseFloat(document.getElementById("soluongphanvisinhlan1").value) || 0;
     const price1 = parseFloat(document.getElementById("giaphanvisinhlan1").value) || 0;
@@ -26,47 +25,42 @@ function calculateMicrobialFertilizerCost() {
 
     // Calculate totalMicrobialFertilizerCost
     const totalMicrobialFertilizerCost = (quantity1 * price1) + (quantity2 * price2);
+
     // Update the HTML element with the calculated cost
     document.getElementById("calculatedPhanViSinhCost").textContent = formatNumberWithCommas(totalMicrobialFertilizerCost.toFixed(0));
 }
 
-    // Add event listeners to input fields
-    document.getElementById("soluongphanvisinhlan1").addEventListener("input", calculateMicrobialFertilizerCost);
-    document.getElementById("giaphanvisinhlan1").addEventListener("input", calculateMicrobialFertilizerCost);
-    document.getElementById("soluongphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
-    document.getElementById("giaphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
+// Add event listeners to input fields
+document.getElementById("soluong").addEventListener("input", calculateCost);
+document.getElementById("price").addEventListener("input", calculateCost);
+document.getElementById("soluongphanvisinhlan1").addEventListener("input", calculateMicrobialFertilizerCost);
+document.getElementById("giaphanvisinhlan1").addEventListener("input", calculateMicrobialFertilizerCost);
+document.getElementById("soluongphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
+document.getElementById("giaphanvisinhlan2").addEventListener("input", calculateMicrobialFertilizerCost);
+document.getElementById("laborCount").addEventListener("input", calculateLaborCost);
+document.getElementById("daysCount").addEventListener("input", calculateLaborCost);
+document.getElementById("laborCost").addEventListener("input", calculateLaborCost);
+document.getElementById("landRent").addEventListener("input", calculateTotalInvestment);
+document.getElementById("landPrep1").addEventListener("input", calculateTotalInvestment);
+document.getElementById("landPrep2").addEventListener("input", calculateTotalInvestment);
+document.getElementById("landPrep3").addEventListener("input", calculateTotalInvestment);
+document.getElementById("landPrep4").addEventListener("input", calculateTotalInvestment);
+document.getElementById("calculateBtn").addEventListener("click", calculateTotalInvestment);
 
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("currentDate").style.textAlign = "left";
     document.getElementById("currentDate").innerText = new Date().toLocaleDateString();
-    document.getElementById("calculateBtn").addEventListener("click", calculateTotalInvestment);
-    document.getElementById("soluong").addEventListener("input", function() {
-        calculateCost();
-    });
-    document.getElementById("price").addEventListener("input", function() {
-        calculateCost();
-    });
-
-    // Labor cost calculation
-    const laborCountEl = document.getElementById("laborCount");
-    const daysCountEl = document.getElementById("daysCount");
-    const laborCostEl = document.getElementById("laborCost");
-    const calculatedLaborCostEl = document.getElementById("calculatedLaborCost");
-
-    function calculateLaborCost() {
-        const laborCount = parseFloat(laborCountEl.value) || 0;
-        const daysCount = parseFloat(daysCountEl.value) || 0;
-        const laborCost = parseFloat(laborCostEl.value) || 0;
-
-        // Update the global variable
-        totalLaborCost = laborCount * daysCount * laborCost;
-        calculatedLaborCostEl.textContent = formatNumberWithCommas(totalLaborCost);
-    }
-
-    laborCountEl.addEventListener("input", calculateLaborCost);
-    daysCountEl.addEventListener("input", calculateLaborCost);
-    laborCostEl.addEventListener("input", calculateLaborCost);
 });
+
+function calculateLaborCost() {
+    const laborCount = parseFloat(document.getElementById("laborCount").value) || 0;
+    const daysCount = parseFloat(document.getElementById("daysCount").value) || 0;
+    const laborCost = parseFloat(document.getElementById("laborCost").value) || 0;
+
+    // Update the global variable
+    totalLaborCost = laborCount * daysCount * laborCost;
+    document.getElementById("calculatedLaborCost").textContent = formatNumberWithCommas(totalLaborCost);
+}
 
 function calculateTotalInvestment() {
     calculateMicrobialFertilizerCost(); // Calculate Microbial Fertilizer Cost
